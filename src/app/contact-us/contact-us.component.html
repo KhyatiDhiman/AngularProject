@@ -1,0 +1,76 @@
+<div class="w3-animate-bottom">
+<div style="color:#3f51b5">
+  <div class="container-fluid">
+  <div class="row" >
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10" style="margin-bottom: 32px; border-bottom: 2px solid rgba(0,0,0,.1);">
+        <h2>
+          Get in touch
+          </h2>
+         </div>
+ <div class="col-lg-1"></div>
+ </div>
+ <div class="row" style="margin-bottom: 27px;">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-5" > 
+      <h4 style="padding-bottom: 18px;">Request Infromation</h4>
+      <form [formGroup]="contactUsForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline">
+  <mat-label>Enter name</mat-label>
+  <input matInput placeholder="Enter name"[formControl]="contactUsForm.controls.name" required>
+  <mat-error *ngIf="contactUsForm.controls.name.invalid"><i class="fa fa-long-arrow-up" aria-hidden="true"></i> Please enter name</mat-error>
+</mat-form-field>
+ <mat-form-field appearance="outline">
+    <mat-label>Enter Email</mat-label>
+    <input matInput placeholder="Enter email" [formControl]="contactUsForm.controls.email" required>
+    <mat-error *ngIf="contactUsForm.controls.email.invalid"><i class="fa fa-long-arrow-up" aria-hidden="true"></i> {{getErrorEmailMessage()}}</mat-error>
+   </mat-form-field>
+   <mat-form-field appearance="outline">
+      <mat-label>Enter Contact Number</mat-label>
+      <input matInput placeholder="Enter mobile number" [formControl]="contactUsForm.controls.phone" required>
+      <mat-error *ngIf="contactUsForm.controls.phone.invalid">
+          <i class="fa fa-long-arrow-up" aria-hidden="true"></i> Please enter valide Contact number</mat-error>
+     </mat-form-field>
+     <mat-form-field appearance="outline">
+        <mat-label>Infromation About Request</mat-label>
+        <textarea matInput placeholder="Enter text here" maxlength="1000" [formControl]="contactUsForm.controls.comment"></textarea>
+        <mat-hint align="end">{{contactUsForm.controls.comment.value?.length || 0}}/1000</mat-hint> 
+      </mat-form-field>
+      <div class="flex-button-container">
+        <div><button mat-raised-button color="primary" type="submit">Submit</button></div>
+        <div style="text-align: end;"><button mat-raised-button color="primary" type="reset" (click)='cancel()'>Cancel</button></div>
+      </div>
+       </form>
+ </div>
+ <div class="col-lg-1 paddingZeroSmall"><hr class="showOnSmall"/></div>
+ <div class="col-lg-4 marginTopSmall27px" >
+    <h4>Contact us</h4>  
+    <p style="color:#212529;font-size: 18px;padding-top: 12px;padding-left: 12px;">
+      <span><i style="color:brown;" class="fa fa-phone" aria-hidden="true"></i> <span class="hideOnSmall"> +91-0000000</span> 
+      <a href="tel:07720-099-099" style="color: #212529; text-decoration: underline;" class="showOnSmall"> +91-7720-999-999</a>
+    </span>
+      <br><br>
+      <span><i style="color:brown;" class="fa fa-phone" aria-hidden="true"></i>
+        <span class="hideOnSmall">+91-9090-004-444</span> 
+      <a href="tel:08421-004-444" style="color: #212529; text-decoration: underline;" class="showOnSmall"> +91-9821-004-444</a>  
+    </span> 
+  </p>
+      <p style="font-size: 18px;padding-top: 12px;padding-left: 12px;">
+        <a href="mailto:info@cottonavenue.in" target="_top"><i style="color:brown;" class="fa fa-envelope" aria-hidden="true"></i> info@cottonavenue.in</a>
+        </p>
+    <div>
+        <hr>
+        <h4>Content Us</h4>  
+        <div class="social-container">
+        <div><div class="facebook" onclick="window.open('http:\/\/sameershet.in', '_blank')"><i class="fa fa-facebook" aria-hidden="true"></i></div></div>     
+        <div><div class="insta" onclick="window.open('http:\/\/sameershet.in', '_blank')"><i class="fa fa-instagram" aria-hidden="true"></i></div></div>  
+        <div><div class="twitter"><a id="twitter" href="mailto:info@cottonavenue.in" target="_top"><i class="fa fa-envelope" aria-hidden="true"></i></a></div></div> 
+      </div>
+      <hr>
+      </div>
+</div>
+ <div class="col-lg-1"></div>
+ </div>
+ </div>
+ </div>
+</div>

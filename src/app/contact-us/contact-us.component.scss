@@ -1,0 +1,116 @@
+a{
+    color:#212529;
+}
+a:hover {
+    cursor: pointer;
+}
+hr {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: 0;
+    border-top: 2px solid rgba(0,0,0,.1);
+}
+.mat-raised-button.mat-primary {
+    background-color: rgba(0, 0, 0, 0.77);
+}
+.flex-button-container{
+    display: flex;
+    width: 100%;
+    div{
+        width:50%;
+    }
+}
+.social-container {
+    display: flex;
+    height: 150px;
+    div {
+        min-width: 32%;
+        text-align: center;
+        font-size: 32px;
+        margin: auto;
+    }
+
+    .facebook {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        border: 1px solid;
+        text-align: center;
+        margin: auto;
+        background-color: #e0dddd;
+        color: #3b5998;
+          /* Old browsers */
+        background: linear-gradient(to right, rgba(255,255,255,.15) 50%, #3b5998 50%);
+        background-size: 200% 100%;
+        background-position:left bottom;
+        transition:all 1s ease;
+
+    }
+    .facebook:hover {
+        background-position:right bottom;
+        color: #ffffff;
+        cursor: pointer;
+      
+    }
+    .insta {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        border: 1px solid;
+        text-align: center;
+        margin: auto;
+        background-color: #e0dddd;
+        color:#e4405f;
+        /* Old browsers */
+        background: linear-gradient(to right,rgba(255,255,255,.15) 50%, #e4405f 50%);
+        background-size: 200% 100%;
+        background-position:left bottom;
+        transition:all 1s ease;
+    }
+    .insta:hover { 
+        background-position:right bottom;
+        color:#ffffff;
+        cursor: pointer;
+    }
+    .twitter {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        border: 1px solid;
+        text-align: center;
+        margin: auto;
+        background-color: #e0dddd;
+        color: #55acee;
+      /* Old browsers */
+        background: linear-gradient(to right, rgba(255,255,255,.15) 50%, #55acee 50%);
+        background-size: 200% 100%;
+        background-position:left bottom;
+        transition:all 1s ease;
+    }
+    .twitter:hover {
+        background-position:right bottom;
+        color: #ffffff;
+        cursor: pointer;
+    }
+
+}
+#twitter {
+    color: #55acee;
+}
+#twitter:hover {
+    color: #fff;
+}
+.showOnSmall{
+    display: none;
+}
+@media (max-width:599px){
+    .hideOnSmall{
+        display: none;
+    }
+    .showOnSmall{
+        display: inherit
+    }
+    .paddingZeroSmall{
+        padding: 0;
+    }    
+}

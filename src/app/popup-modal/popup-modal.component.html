@@ -1,0 +1,10 @@
+<h1 mat-dialog-title><span *ngIf="data.name !== 'error'" style="color: black !important;">{{data.name}}</span></h1>
+<div mat-dialog-content >
+  <i *ngIf="isError" class="fa fa-exclamation-triangle" aria-hidden="true"></i> 
+    <span [innerHTML]='data.message'></span>
+</div>
+<br>
+<div mat-dialog-actions>
+  <button *ngIf="!isError" mat-raised-button color="primary" [mat-dialog-close]="" cdkFocusInitial>Ok</button>
+  <button *ngIf="isError" mat-raised-button color="warn" [mat-dialog-close]="" cdkFocusInitial>Ok</button>
+</div>

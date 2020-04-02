@@ -1,0 +1,91 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="w3-animate-bottom">
+<div  style="padding-bottom: 72px;" class="{{selectedIndex === 1 ? 'bgColor' : ''}}">
+  <div class="bgColor">
+  <div class="header" id="header">
+ 
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-1 col-mg-1" ></div>
+      <div class="col-lg-7 col-mg-5" >
+          <div class=" w3-animate-left" *ngIf='showHeader'> 
+            <h1>
+            <a href="http://www.cottonavenue.in/">
+              {{ title }}
+              <span>Shop any where</span>
+            </a>
+        </h1>
+    </div>
+      </div>
+      <div class="col-lg-4 col-mg-6"> 
+        <mat-tab-group (selectedIndexChange)="goto($event)"  (keydown)="$event.stopPropagation()" >
+          <mat-tab label="Shop"  (keydown)="$event.stopPropagation()" ></mat-tab>
+          <mat-tab label="Contact us"  (keydown)="$event.stopPropagation()" ></mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+<div class="carousel" *ngIf='selectedIndex === 2'>
+  <ngb-carousel *ngIf="images" showNavigationArrows="true" interval="2000" pauseOnHover="false">
+    <ng-template ngbSlide>
+      <img [src]="images[0]" alt="Random first slide">
+      <div class="carousel-caption">
+        <h3>First slide label</h3>
+        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <img [src]="images[1]" alt="Random second slide">
+      <div class="carousel-caption">
+        <h3>Second slide label</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <img [src]="images[2]" alt="Random third slide">
+      <div class="carousel-caption">
+        <h3>Third slide label</h3>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</div>
+<div *ngIf='selectedIndex === 0'>
+    <div id="blankDiv"></div>
+  <app-shopping></app-shopping>
+</div>
+<div *ngIf='selectedIndex === 1' class="background">
+    <!--  -->
+    <div id="blankDiv" class="marginTop72 marginTop48Medium marginTop27Small"></div>
+    <app-contact-us></app-contact-us>
+</div>
+</div>
+</div>
+
+<div class="footer" id="footer">
+  <div class="container-fluid">
+  <div class="row" style="margin: auto;
+  max-width: 1440px;">
+  <div class="col-lg-8"><div class="marginCopy">© 2018–2019 Cotton Avenue, All rights reserved.</div></div>
+  <div class="col-lg-4">
+        <div class="social-container" *ngIf='selectedIndex !== 1'>
+        <div><div class="facebook" onclick="window.open('https:\/\/www.facebook.com/', '_blank')"><i class="fa fa-facebook" aria-hidden="true"></i></div></div>     
+        <div><div class="insta" onclick="window.open('http:\/\/sameershet.in', '_blank')"><i class="fa fa-instagram" aria-hidden="true"></i></div></div>  
+        <div><div class="twitter"><a id="twitter" href="mailto:info@cottonavenue.in" target="_top"><i class="fa fa-envelope" aria-hidden="true"></i></a></div></div> 
+      </div>
+    </div>
+    </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+<div *ngIf="showScollToTop" id="scollToTopBtn" 
+[ngx-scroll-to]="'#header'" [ngx-scroll-to-duration]="1000" class="w3-animate-right" >
+<i class="fa fa-long-arrow-up" aria-hidden="true"></i>
+</div>
+</div>
+</div>
+</div>

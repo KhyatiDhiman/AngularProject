@@ -1,0 +1,90 @@
+<div id="balckDiv"  *ngIf='!showTiles' style="height: 164px;"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10 padding0Below840 padding0Small">
+        <div *ngIf="showTiles" style="margin:auto; max-width: 1440px;">
+            <div style="display: flex; width: 100%; flex-wrap: wrap;">
+              <div class="w3-animate-left textContainer"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Best deal</div>
+              <div class="w3-animate-top textContainer"><i class="fa fa-exchange"></i>Easy Exchange</div>
+              <div class="w3-animate-bottom textContainer"><i class="fa fa-truck"></i>Free Shipping</div>
+              <div class="w3-animate-right textContainer"><i class="fa fa-shopping-bag"></i>On time Delivery</div>
+            </div>
+        </div>
+        </div>
+        <div class="col-lg-1"></div>
+    </div>
+    <hr style="margin-top: 0">
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+      <div *ngIf="showError" class="error">
+          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> We are facing issue. Please try after some time <i class="fa fa-frown-o" aria-hidden="true"></i></div>
+      <div [@fadeInOut] style="margin:auto; max-width: 1440px;">
+        <div style="display: flex; width: 100%; flex-wrap: wrap;">
+          <div *ngFor="let record of viewTshirtRecords; index as i;" class="tile">
+            
+            <div class="imgContainer">
+              <div>
+              <img [src]="record.tshirtImage" alt="Random third slide" class="imgSize" (error)="hidePic(record)">
+              </div>
+            <div class="overlay">
+                <div class="text">
+                  <div class="title">
+                      <div>{{record.title}}</div>
+                      <span *ngIf="record.salePrice && record.salePrice!=''"><b>₹ {{record.salePrice}}</b>&nbsp;&nbsp;</span>
+                      <span *ngIf="record.orginalPrice && record.orginalPrice!=''" style="color: gray;text-decoration: line-through;">₹ {{record.orginalPrice}}</span>
+                      <span style="color: darkgreen">&nbsp;&nbsp;<b>{{record.off}}</b></span>
+                  </div>
+                  <div class="description">
+                    <div *ngIf="record.size && record.size !==''">
+                      Size: <span>{{getSize(record.size)}}</span>
+                    </div>
+                    <div style="margin-top: 12px;" *ngIf="record.tshirtColor && record.tshirtColor !==''">
+                      <span *ngFor="let bgColor of record.tshirtColor.split(';')">
+                        <div style="margin-right: 12px;margin-bottom: 36px; width: 20px; height: 20px; display:inline-block; border-radius: 50%;" 
+                        [ngStyle] = "{'background' :  bgColor}"></div>
+                      </span>
+                </div>
+                </div>
+                </div>
+              </div>
+              </div>
+              <span *ngIf="(record.amazonLink && record.amazonLink !='') || (record.flipcartLink && record.flipcartLink !='')">
+              Buy on
+            </span>
+              <div class="buyOnBtn row">
+              <div class="col-6 {{!(record.amazonLink && record.amazonLink !='') ? 'col-12' : ''}}" *ngIf="record.flipcartLink && record.flipcartLink !=''">
+                <a class="cta" href="{{record.flipcartLink}}" target="_blank">
+                  <span>Flipkat</span></a>
+                </div>
+                <div class="col-6 {{!(record.flipcartLink && record.flipcartLink !='') ? 'col-12': ''}}" *ngIf="record.amazonLink && record.amazonLink !=''">
+                  <a class="cta" href="{{record.amazonLink}}"  target="_blank">
+                      <span>Amazon</span></a>
+                      </div>
+            </div>
+              
+          </div>
+        </div>
+        <div style="display: flex;width: 100%;" *ngIf="viewTshirtRecords.length>0">
+        <div style="width: 30%;background: #ddd">
+          <button  style="background: darkred; border: 1px darkred solid; padding: 6px; float: left; width: 100px; color:#fff" 
+          [ngx-scroll-to]="'#blankDiv'" [ngx-scroll-to-duration]="200"
+        *ngIf="showPrevBtn" (click)="getPrevPage();"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Previous</button>
+      </div>
+      <div  style="width: 40%; text-align: center;padding-top: 8px;background: #ddd">
+        <span>
+          {{prevRec - 39}} - {{(tShirtRecords.length < prevRec ? tShirtRecords.length : prevRec)}} of {{tShirtRecords.length}}
+        </span> 
+      </div>
+      <div  style="width: 30%;background: #ddd">
+          <button style="background: darkred; border: 1px darkred solid; padding: 6px; float:right;width: 100px; color:#fff"
+          [ngx-scroll-to]="'#blankDiv'" [ngx-scroll-to-duration]="200"
+        *ngIf="showNxtBtn" (click)="getNextPage();">Next <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+      </div>
+    </div>
+      </div>
+    </div>
+    <div class="col-lg-1"></div>
+  </div>
+</div>
